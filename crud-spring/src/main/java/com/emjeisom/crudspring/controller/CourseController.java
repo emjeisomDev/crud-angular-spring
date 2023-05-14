@@ -13,22 +13,14 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/api/courses")
-@AllArgsConstructor
+@AllArgsConstructor // O lombok cria o construtor através da anatação
 public class CourseController {
     
     private final CourseRepository courseRepository;
 
-    // O lombok cria o construtor através da anatação @AllArgsConstructor
-    // public CourseController(CourseRepository courseRepository) {
-    //     this.courseRepository = courseRepository;
-    // }
-
-    @GetMapping("/")
+    @GetMapping()
     public List<Course> list(){
         return courseRepository.findAll();
     }
-
-
-
 
 }
