@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Course } from '../model/course';
 import { CoursesService } from '../services/courses.service';
@@ -15,7 +15,7 @@ export class CoursesComponent {
 
 
   courses$: Observable<Course[]>;
-  displayedColumns = ['name','category'];
+  displayedColumns = ['name' ,'category'];
 
   constructor(
     private coursesService: CoursesService,
@@ -36,7 +36,6 @@ export class CoursesComponent {
     });
   }
 
-  ngOnInit(){
-  }
+
 
 }
