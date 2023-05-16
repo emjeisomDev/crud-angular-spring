@@ -11,8 +11,8 @@ import lombok.Data;
 
 @Data
 @Entity(name = "courses")
-public class Course {
 
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("_id")
@@ -23,6 +23,5 @@ public class Course {
 
     @Column(name = "category", length = 20, nullable = false)
     private String category;
-
 
 }
