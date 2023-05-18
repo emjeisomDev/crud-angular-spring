@@ -14,9 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CoursesComponent {
 
-
   courses$: Observable<Course[]>;
-  displayedColumns = ['name' ,'category', 'actions'];
 
   constructor(
     private coursesService: CoursesService,
@@ -40,7 +38,6 @@ export class CoursesComponent {
   }
 
   onAdd(){
-    // console.log('onAdd');
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
