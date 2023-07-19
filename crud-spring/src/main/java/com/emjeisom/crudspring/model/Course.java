@@ -1,5 +1,7 @@
 package com.emjeisom.crudspring.model;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,8 +17,9 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Data
-@Entity(name = "courses")
-
+@SQLDelete(sql = "UPDATE Course SET status = 'inactive' WHERE id = ? ")
+@Entity(name = "course")
+@Where(clause = "status ='active'")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,5 +38,12 @@ public class Course {
     @Pattern(regexp = "back-end|front-end")
     @Column(name = "category", length = 20, nullable = false)
     private String category;
+
+    @NotBlank
+    @NotNull
+    @Length(max = 10)
+    @Pattern(regexp = "active|inactive")
+    @Column(length = 20, nullable = false)
+    private String status = "active";
 
 }
